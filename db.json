@@ -1,0 +1,7 @@
+{
+	"stock": [
+		{ "id": 1, "type": "sea", "size": "L", "count": 2, "price": 100 },
+		{ "id": 2, "type": "pond", "size": "S", "count": 43, "price": 20 }
+	],
+	"orders": []
+}
