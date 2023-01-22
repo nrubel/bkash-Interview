@@ -1,7 +1,40 @@
 {
-	"stock": [
-		{ "id": 1, "type": "sea", "size": "L", "count": 2, "price": 100 },
-		{ "id": 2, "type": "pond", "size": "S", "count": 43, "price": 20 }
-	],
-	"orders": []
+  "stock": [
+    {
+      "id": 1,
+      "type": "sea",
+      "size": "L",
+      "count": 0,
+      "price": 100
+    },
+    {
+      "id": 2,
+      "type": "pond",
+      "size": "S",
+      "count": 36,
+      "price": 20
+    }
+  ],
+  "orders": [
+    {
+      "name": "Nasir",
+      "products": {
+        "sea__L__1": 2
+      },
+      "amount": 1000,
+      "total": 200,
+      "change": 800,
+      "id": 1
+    },
+    {
+      "name": "Nasir",
+      "products": {
+        "pond__S__2": 3
+      },
+      "amount": 100,
+      "total": 60,
+      "change": 40,
+      "id": 2
+    }
+  ]
 }

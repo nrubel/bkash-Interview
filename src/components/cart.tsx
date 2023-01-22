@@ -16,7 +16,7 @@ export const Cart: FC = () => {
 			</h2>
 			<ul className={`flex flex-col space-y-2`}>
 				{data.result?.map((item: any) => {
-					if (list[`${item.type}`]) {
+					if (list[`${item.type + "__" + item.size + "__" + item.id}`]) {
 						return (
 							<li
 								key={`cart-item-${item.type}`}
@@ -24,13 +24,15 @@ export const Cart: FC = () => {
 								<div className={`mr-4`}>{item.type}</div>
 								<div className={`mr-auto tracking-[2px]`}>[{item.size}]</div>
 								<Counter
-									value={list[`${item.type}`] || 0}
+									value={list[`${item.type + "__" + item.size + "__" + item.id}`] || 0}
 									onChange={(c: number) => {
-										updateList({ ...list, [item.type]: c });
+										updateList({ ...list, [item.type + "__" + item.size + "__" + item.id]: c });
 									}}
 								/>
 
-								<div className={`ml-10`}>$ {item.price * (list[`${item.type}`] || 0)}</div>
+								<div className={`ml-10`}>
+									$ {item.price * (list[`${item.type + "__" + item.size + "__" + item.id}`] || 0)}
+								</div>
 							</li>
 						);
 					} else {

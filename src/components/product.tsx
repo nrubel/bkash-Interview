@@ -5,7 +5,7 @@ import { cartState } from "../dataStore/recoil";
 import type { Stock } from "../models/stock";
 
 export const Product: FC<{ item: Stock }> = ({ item }) => {
-	const { type, price, count, size } = item;
+	const { id, type, price, count, size } = item;
 	const [cartCount, setCount] = useState<number>(1);
 	const [cart, setCart] = useRecoilState(cartState);
 
@@ -26,8 +26,12 @@ export const Product: FC<{ item: Stock }> = ({ item }) => {
 				/>
 				<button
 					onClick={() => {
-						setCart({ ...cart, [type]: cartCount + (cart[`${type}`] || 0) });
-						setCount(1);
+						if (count === 0) {
+							alert(`Product out of stock`);
+						} else {
+							setCart({ ...cart, [type + "__" + size + "__" + id]: cartCount + (cart[`${type}`] || 0) });
+							setCount(1);
+						}
 					}}
 					className={`py-2 px-3 w-1/2 text-center bg-indigo-600 text-white hover:bg-indigo-900 rounded-tr rounded-br transition-all ease-linear`}>
 					Add to cart

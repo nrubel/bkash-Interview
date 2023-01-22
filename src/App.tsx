@@ -9,9 +9,6 @@ import { Stock } from "./models/stock";
 
 function App() {
 	const [products, updateProductList] = useRecoilState(productsState);
-	console.log("====================================");
-	console.log(products);
-	console.log("====================================");
 
 	useEffect(() => {
 		(async () => {
